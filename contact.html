@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact - Fake News Detector</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <style>
+        /* SAME BACKGROUND AS HOME */
+        body {
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background: url("{{ url_for('static', filename='bg.jpg') }}") no-repeat center center/cover;
+            color: white;
+        }
+
+        /* NAVBAR (SAME AS HOME) */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00f7ff;
+        }
+
+        .nav-links a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00f7ff;
+        }
+
+        /* CENTER CONTENT (SAME AS HOME) */
+        .container {
+            height: 85vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* GLASS BOX (SAME STYLE) */
+        .content-box {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            width: 60%;
+        }
+
+        .content-box h1 {
+            font-size: 32px;
+        }
+
+        .content-box p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        /* FORM INPUTS */
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* BUTTON (SAME STYLE) */
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #00f7ff, #00c3ff);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px #00f7ff;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">📰 Fake News Detector</div>
+
+    <div class="nav-links">
+        <a href="/home">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/history">History</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<!-- CENTER CONTENT -->
+<div class="container">
+    <div class="content-box">
+
+        <h1>📩 Contact Us</h1>
+        <p>Have questions or feedback? We'd love to hear from you.</p>
+
+        <form id="contactForm">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" required></textarea>
+
+    <button type="submit">🚀 Send Message</button>
+</form>
+
+<!-- POPUP -->
+<div id="popup" style="display:none; color:#00ff99; margin-top:15px;">
+    ✅ Message sent successfully!
+</div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History - Fake News Detector</title>
+
+    <!-- ✅ FIXED CSS PATH -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+
+<!-- ✅ ADD PAGE CLASS -->
+<body class="history-page">
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">📰 Fake News Detector</div>
+    <div class="nav-links">
+        <a href="/home">Home</a>
+        <a href="/detect">Detect</a>
+        <a href="/history">History</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <h1 style="text-align:center; margin-bottom:20px;">📜 Detection History</h1>
+
+    {% if history %}
+        {% for item in history %}
+
+            <div class="history-item">
+
+                <p><strong>News:</strong> {{ item.text }}</p>
+
+                <p class="{% if 'FAKE' in item.result %}fake{% else %}real{% endif %}">
+                    {{ item.result }} ({{ item.confidence }}%)
+                </p>
+
+            </div>
+
+        {% endfor %}
+    {% else %}
+
+        <p style="text-align:center;">No history available yet.</p>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
